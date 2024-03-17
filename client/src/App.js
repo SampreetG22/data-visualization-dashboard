@@ -33,40 +33,12 @@ const App = () => {
   return (
     <ChakraProvider>
       <Intensities fullData={data} />
-      <Relevance fullData={data} />
-      <Flex direction={{ base: "column", md: "row" }}>
+      <Flex direction={{ base: "column", md: "row" }} mt={20} mb={20}>
         <Box
           flex={{ base: "1", md: "0.5" }}
-          maxW="45%"
+          maxW="50%"
           p={5}
-          ml={10}
-          mb={20}
-          borderRadius="10px"
-          boxShadow="0px 0px 15px gray"
-          backgroundColor="#e3e3e342"
-        >
-          <Regions fullData={data} />
-        </Box>
-        <Box
-          flex={{ base: "1", md: "0.5" }}
-          maxW="45%"
-          p={5}
-          ml={10}
-          mb={20}
-          borderRadius="10px"
-          boxShadow="0px 0px 15px gray"
-          backgroundColor="#e3e3e342"
-        >
-          <Topics fullData={data} />
-        </Box>
-      </Flex>
-      <Countries fullData={data} />
-      <Flex direction={{ base: "column", md: "row" }}>
-        <Box
-          flex={{ base: "1", md: "0.5" }}
-          maxW="45%"
-          p={5}
-          ml={10}
+          m={5}
           borderRadius="10px"
           boxShadow="0px 0px 15px gray"
           backgroundColor="#e3e3e342"
@@ -75,9 +47,9 @@ const App = () => {
         </Box>
         <Box
           flex={{ base: "1", md: "0.5" }}
-          maxW="45%"
+          maxW="50%"
           p={5}
-          ml={10}
+          m={5}
           borderRadius="10px"
           boxShadow="0px 0px 15px gray"
           backgroundColor="#e3e3e342"
@@ -85,6 +57,32 @@ const App = () => {
           <Likelyhood fullData={data} />
         </Box>
       </Flex>
+      <Relevance fullData={data} />
+      <Flex direction={{ base: "column", md: "row" }}>
+        <Box
+          flex={{ base: "1", md: "0.5" }}
+          maxW="50%"
+          p={5}
+          m={5}
+          borderRadius="10px"
+          boxShadow="0px 0px 15px gray"
+          backgroundColor="#e3e3e342"
+        >
+          <Regions fullData={data} />
+        </Box>
+        <Box
+          flex={{ base: "1", md: "0.5" }}
+          maxW="50%"
+          p={5}
+          m={5}
+          borderRadius="10px"
+          boxShadow="0px 0px 15px gray"
+          backgroundColor="#e3e3e342"
+        >
+          <Topics fullData={data} />
+        </Box>
+      </Flex>
+      <Countries fullData={data} />
     </ChakraProvider>
   );
 };

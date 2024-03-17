@@ -11,14 +11,14 @@ const Likelyhood = ({ fullData }) => {
         label: "Likelihood",
         data: data.map((entry) => entry.likelihood),
         backgroundColor: useColorModeValue(
-          "rgba(79, 59, 169, 0.7)",
-          "rgba(144, 104, 190, 0.7)"
+          "rgba(255, 0, 0, 0.4)",
+          "rgba(255, 165, 0, 0.7)"
         ),
         borderColor: useColorModeValue(
           "rgba(79, 59, 169, 1)",
           "rgba(144, 104, 190, 1)"
         ),
-        borderWidth: 2,
+        borderWidth: 1,
         pointBackgroundColor: useColorModeValue("white", "black"),
         pointBorderColor: useColorModeValue(
           "rgba(79, 59, 169, 1)",
@@ -44,7 +44,7 @@ const Likelyhood = ({ fullData }) => {
   return (
     <Box pb={100} maxHeight={700} overflow="hidden">
       <Heading as="h2" mb={4}>
-        Likelihood Chart
+        Likelihoods
       </Heading>
       <Radar data={chartData} options={chartOptions} />
     </Box>

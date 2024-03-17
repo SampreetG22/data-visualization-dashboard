@@ -66,27 +66,23 @@ const Countries = ({ fullData }) => {
   return (
     <Box
       p={6}
-      borderRadius="1px"
+      borderRadius="10px"
       boxShadow="0px 0px 15px gray"
       backgroundColor="#e3e3e342"
-      shadow="md"
-      m={10}
+      m={5}
+      mt={20}
+      width="97%"
     >
       <Flex direction="column" margin={"auto"}>
-        <Heading
-          as={"h2"}
-          textAlign="left"
-          mb={4}
-          style={{ textAlign: "left" }}
-        >
-          Country Chart
+        <Heading as={"h2"} mb={4} style={{ textAlign: "center" }}>
+          Countries
         </Heading>
         <Select
           value={selectedCountry}
           onChange={handleCountryChange}
           mb={4}
-          w="200px"
-          colorScheme="purple"
+          w="250px"
+          colorScheme="pink"
         >
           <option value="United States of America">
             United States of America

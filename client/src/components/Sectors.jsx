@@ -1,18 +1,23 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
-import { Box, Heading, useColorModeValue } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 
 const PieChart = ({ fullData }) => {
   const data = fullData.slice(0, 30);
-  const sectors = {};
 
-  data.forEach((entry) => {
-    if (!sectors[entry.sector]) {
-      sectors[entry.sector] = 0;
-    }
-    sectors[entry.sector] += entry.intensity;
-  });
+  // Function to calculate sector intensities
+  const calculateSectorIntensities = (data) => {
+    const sectors = {};
+    data.forEach((entry) => {
+      if (!sectors[entry.sector]) {
+        sectors[entry.sector] = 0;
+      }
+      sectors[entry.sector] += entry.intensity;
+    });
+    return sectors;
+  };
 
+  // Function to generate random colors
   const getRandomColor = (index) => {
     const colors = [
       "#FF0080",
@@ -25,6 +30,8 @@ const PieChart = ({ fullData }) => {
     ];
     return colors[index % colors.length];
   };
+
+  const sectors = calculateSectorIntensities(data);
 
   const chartData = {
     labels: Object.keys(sectors),
@@ -49,11 +56,10 @@ const PieChart = ({ fullData }) => {
   };
 
   return (
-    <Box pb={100} maxHeight={700} overflow="hidden">
+    <Box m={5} pb={100} maxHeight={700} overflow="hidden">
       <Heading as="h2" mb={4}>
-        Sector Chart
+        Sectors{" "}
       </Heading>
-
       <Pie data={chartData} options={chartOptions} />
     </Box>
   );

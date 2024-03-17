@@ -4,36 +4,45 @@ import { Box, Heading } from "@chakra-ui/react";
 
 const Regions = ({ fullData }) => {
   const data = fullData.slice(0, 50);
-  const regionCounts = {};
-  data.forEach((item) => {
-    if (item.region in regionCounts) {
-      regionCounts[item.region]++;
-    } else {
-      regionCounts[item.region] = 1;
+
+  // Function to count occurrences of each region
+  const countRegions = (data) => {
+    const regionCounts = {};
+    data.forEach((item) => {
+      if (item.region in regionCounts) {
+        regionCounts[item.region]++;
+      } else {
+        regionCounts[item.region] = 1;
+      }
+    });
+    return regionCounts;
+  };
+  const generateColors = (count) => {
+    const colors = [];
+    for (let i = 0; i < count; i++) {
+      const hue = (i * 137.508) % 360;
+      colors.push(`hsl(${hue}, 70%, 50%)`);
     }
-  });
+    return colors;
+  };
+
+  const regionCounts = countRegions(data);
+  const labels = Object.keys(regionCounts);
+  const counts = Object.values(regionCounts);
 
   const chartData = {
-    labels: Object.keys(regionCounts),
+    labels: labels,
     datasets: [
       {
-        data: Object.values(regionCounts),
-        backgroundColor: [
-          "green",
-          "orange",
-          "#FFCE56",
-          "magenta",
-          "#FF9800",
-          "#0080FF",
-          "skyblue",
-        ],
+        data: counts,
+        backgroundColor: generateColors(labels.length),
       },
     ],
   };
 
   return (
     <Box>
-      <Heading as="h2" mb={4}>
+      <Heading as="h2" mb={4} textAlign="center">
         Regions
       </Heading>
       <Doughnut data={chartData} />
