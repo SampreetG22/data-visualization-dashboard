@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
-import {
-  Box,
-  Flex,
-  Heading,
-  Select,
-  useColorMode,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, Select, useColorMode } from "@chakra-ui/react";
 
-const Countries = ({ data }) => {
+const Countries = ({ fullData }) => {
+  const data = fullData.slice(0, 30);
   const { colorMode } = useColorMode();
   const [selectedCountry, setSelectedCountry] = useState(
     "United States of America"
@@ -70,7 +64,14 @@ const Countries = ({ data }) => {
   };
 
   return (
-    <Box p={6} shadow="md" bg={useColorModeValue("white", "gray.800")} m={50}>
+    <Box
+      p={6}
+      borderRadius="1px"
+      boxShadow="0px 0px 15px gray"
+      backgroundColor="#e3e3e342"
+      shadow="md"
+      m={10}
+    >
       <Flex direction="column" margin={"auto"}>
         <Heading
           as={"h2"}

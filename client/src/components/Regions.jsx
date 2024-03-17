@@ -2,7 +2,8 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Box, Heading } from "@chakra-ui/react";
 
-const Regions = ({ data }) => {
+const Regions = ({ fullData }) => {
+  const data = fullData.slice(0, 50);
   const regionCounts = {};
   data.forEach((item) => {
     if (item.region in regionCounts) {
@@ -18,22 +19,13 @@ const Regions = ({ data }) => {
       {
         data: Object.values(regionCounts),
         backgroundColor: [
-          "#FF6384",
-          "#36A2EB",
+          "green",
+          "orange",
           "#FFCE56",
-          "#4CAF50",
+          "magenta",
           "#FF9800",
-          "#9C27B0",
-          "#3F51B5",
-        ],
-        hoverBackgroundColor: [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#4CAF50",
-          "#FF9800",
-          "#9C27B0",
-          "#3F51B5",
+          "#0080FF",
+          "skyblue",
         ],
       },
     ],
@@ -42,7 +34,7 @@ const Regions = ({ data }) => {
   return (
     <Box>
       <Heading as="h2" mb={4}>
-        Region Distribution
+        Regions
       </Heading>
       <Doughnut data={chartData} />
     </Box>

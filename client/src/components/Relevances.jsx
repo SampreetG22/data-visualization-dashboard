@@ -2,7 +2,8 @@ import React from "react";
 import { Bubble } from "react-chartjs-2";
 import { Box, Heading } from "@chakra-ui/react";
 
-const Relevance = ({ data }) => {
+const Relevance = ({ fullData }) => {
+  const data = fullData.slice(0, 30);
   const chartData = {
     datasets: [
       {
@@ -50,11 +51,13 @@ const Relevance = ({ data }) => {
 
   return (
     <Box
+      w="92%"
       margin={50}
       p={4}
       mt={8}
-      borderRadius={18}
-      boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+      borderRadius="10px"
+      boxShadow="0px 0px 15px gray"
+      backgroundColor="#e3e3e342"
     >
       <Heading as="h2" mb={4}>
         Relevance Chart

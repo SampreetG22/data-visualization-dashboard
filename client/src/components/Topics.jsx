@@ -2,7 +2,8 @@ import React from "react";
 import { PolarArea } from "react-chartjs-2";
 import { Box, Heading } from "@chakra-ui/react";
 
-const Topics = ({ data }) => {
+const Topics = ({ fullData }) => {
+  const data = fullData.slice(0, 30);
   const topics = data.map((item) => item.topic);
 
   const chartData = {

@@ -1,25 +1,30 @@
 import { Bar } from "react-chartjs-2";
 import graphsDataLabels from "chartjs-plugin-datalabels";
 import { Heading, Box } from "@chakra-ui/react";
-import Pagination from "@mui/material/Pagination";
 
 const Intensities = ({ fullData }) => {
   const data = fullData.slice(0, 30);
   const intensities = data.map((each) => each.intensity);
   const years = data.map((item) => item.start_year);
 
-  const barColor = (value) => {
-    const colors = ["#4CAF50", "#FFC107", "#2196F3", "#FF5722"];
-    const limits = Math.max(...intensities) / 4;
-    if (value < limits) {
-      return colors[0];
-    } else if (value < limits * 2) {
-      return colors[1];
-    } else if (value < limits * 3) {
-      return colors[2];
-    } else {
-      return colors[3];
+  const colorRanges = [
+    { min: 0, max: 10, color: "green" },
+    { min: 10, max: 20, color: "orange" },
+    { min: 10, max: 20, color: "yellow" },
+    { min: 20, max: 30, color: "magenta" },
+    { min: 30, max: 40, color: "#0080FF" },
+    { min: 40, max: 50, color: "skyblue" },
+    { min: 50, max: 60, color: "maroon" },
+    { min: 60, max: 100, color: "darkred" },
+  ];
+
+  const getColor = (intensity) => {
+    for (const range of colorRanges) {
+      if (intensity >= range.min && intensity < range.max) {
+        return range.color;
+      }
     }
+    return "gray";
   };
 
   const graphsData = {
@@ -27,7 +32,7 @@ const Intensities = ({ fullData }) => {
     datasets: [
       {
         label: "Intensity",
-        backgroundColor: intensities.map((value) => barColor(value)),
+        backgroundColor: intensities.map((value) => getColor(value)),
         data: intensities,
         barThickness: 35,
       },
@@ -85,18 +90,18 @@ const Intensities = ({ fullData }) => {
     <Box
       m={5}
       p={5}
-      borderRadius="8px"
-      boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+      borderRadius="10px"
+      boxShadow="0px 0px 15px gray"
+      backgroundColor="#e3e3e342"
     >
       <Heading as="h2" mb={4}>
-        Intensity Chart
+        Intensities
       </Heading>
       <Bar
         data={graphsData}
         options={chartOptions}
         plugins={[graphsDataLabels]}
       />
-      <Pagination count={10} color="secondary" />
     </Box>
   );
 };
