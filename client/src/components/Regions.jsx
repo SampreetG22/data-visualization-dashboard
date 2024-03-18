@@ -2,10 +2,7 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Box, Heading } from "@chakra-ui/react";
 
-const Regions = ({ fullData }) => {
-  const data = fullData.slice(0, 50);
-
-  // Function to count occurrences of each region
+const Regions = ({ data }) => {
   const countRegions = (data) => {
     const regionCounts = {};
     data.forEach((item) => {

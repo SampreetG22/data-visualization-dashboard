@@ -2,8 +2,7 @@ import React from "react";
 import { Radar } from "react-chartjs-2";
 import { Box, useColorModeValue, Heading } from "@chakra-ui/react";
 
-const Likelyhood = ({ fullData }) => {
-  const data = fullData.slice(0, 30);
+const Likelyhood = ({ data }) => {
   const chartData = {
     labels: data.map((entry) => entry.country),
     datasets: [

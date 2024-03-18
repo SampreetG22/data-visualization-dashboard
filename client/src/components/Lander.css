@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.landerContainer{
+  background: linear-gradient(to right, white, #8000806d);
+  color: purple;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins";
+  padding-top: 20vh;
+  padding-bottom: 10vh;
+}
+.headerAndGif{
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+.mainHeading{
+  font-size: 2.1vw;
+  font-weight: 400;
+  width: 42%;
+  line-height: 4vw;
+  padding-top: 1vw;
+}
+.mainHeader{
+  font-size: 2.8vw;
+  font-weight: 500;
+}
+.gif{
+  width: 35vw;
+  height: 18vw;
+  border-radius: 15px;
+  
+}
+.button{
+  width: 20vw !important;
+  padding: 2vw !important;
+  font-size: 1.5vw !important;
+  background-color: #300030 !important;
+  color: white !important;
+  
+}
+.button:hover{
+  background-color: white !important;
+  color: black !important;
+  box-shadow: 0px 0px 10px black;
+}

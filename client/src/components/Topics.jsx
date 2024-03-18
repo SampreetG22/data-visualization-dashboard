@@ -2,11 +2,8 @@ import React from "react";
 import { PolarArea } from "react-chartjs-2";
 import { Box, Heading } from "@chakra-ui/react";
 
-const Topics = ({ fullData }) => {
-  const data = fullData.slice(0, 30);
+const Topics = ({ data }) => {
   const topics = data.map((item) => item.topic);
-
-  // Define a new color palette
   const colors = [
     "rgba(255, 99, 132, 0.9)",
     "rgba(54, 162, 235, 0.9)",

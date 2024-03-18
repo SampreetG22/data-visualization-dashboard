@@ -2,8 +2,7 @@ import { Bar } from "react-chartjs-2";
 import graphsDataLabels from "chartjs-plugin-datalabels";
 import { Heading, Box } from "@chakra-ui/react";
 
-const Intensities = ({ fullData }) => {
-  const data = fullData.slice(0, 30);
+const Intensities = ({ data }) => {
   const intensities = data.map((each) => each.intensity);
   const years = data.map((item) => item.start_year);
 
@@ -61,7 +60,7 @@ const Intensities = ({ fullData }) => {
         align: "start",
         offset: -20,
         font: { size: 14, weight: "bold" },
-        formatter: (value) => value + "%",
+        formatter: (value) => value,
         shadowBlur: 10,
         shadowColor: "white",
       },

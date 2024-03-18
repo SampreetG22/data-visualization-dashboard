@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { Box, Flex, Heading, Select, useColorMode } from "@chakra-ui/react";
 
-const Countries = ({ fullData }) => {
-  const data = fullData.slice(0, 30);
+const Countries = ({ data }) => {
   const { colorMode } = useColorMode();
   const [selectedCountry, setSelectedCountry] = useState(
     "United States of America"

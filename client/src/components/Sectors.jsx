@@ -2,10 +2,7 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 import { Box, Heading } from "@chakra-ui/react";
 
-const PieChart = ({ fullData }) => {
-  const data = fullData.slice(0, 30);
-
-  // Function to calculate sector intensities
+const PieChart = ({ data }) => {
   const calculateSectorIntensities = (data) => {
     const sectors = {};
     data.forEach((entry) => {
@@ -16,8 +13,6 @@ const PieChart = ({ fullData }) => {
     });
     return sectors;
   };
-
-  // Function to generate random colors
   const getRandomColor = (index) => {
     const colors = [
       "#FF0080",

@@ -27,18 +27,6 @@ app.get("/data", async (req, res) => {
   }
 });
 
-app.post("/data", async (req, res) => {
-  try {
-    const newData = new Data(req.body);
-    const savedData = await newData.save();
-    res.status(201).json(savedData);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server error" });
-  }
-});
-
-// Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

@@ -2,10 +2,7 @@ import React from "react";
 import { Bubble } from "react-chartjs-2";
 import { Box, Heading } from "@chakra-ui/react";
 
-const Relevance = ({ fullData }) => {
-  const data = fullData.slice(0, 30);
-
-  // Define a function to determine bubble color based on relevance
+const Relevance = ({ data }) => {
   const getBubbleColor = (relevance) => {
     if (relevance >= 0.75) {
       return "rgba(0, 255, 0, 0.7)"; // Green
